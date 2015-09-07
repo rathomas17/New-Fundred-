@@ -1,0 +1,62 @@
+<template name="GalleryOpen">
+	<div class = "container-fluid">
+		<div class ="row">
+			<div class = "col-lg-12 col-md-12 col-sm-12 GalleryOpen">
+				<h1>{{fundredname}}</h1>
+				<p style="font-style:italic">by {{name}}</p>
+				<img style="width:80%" src="{{image.url}}"/>
+		        <!--Facebook share code-->
+		        <a href="http://www.facebook.com/sharer.php?u=http://<?php echo get_permalink(); ?>" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" /></a>
+		        <!--Facebook share code-->
+						<h3>Write a comment</h3>
+
+
+        		<form action="/html/tags/html_form_tag_action.cfm" method="post">
+			    	<textarea name="comments" id="comments" style="width:150px;height:100px;font-family:cursive;border:solid 1px #6DB72C;" >Enter your comments here...
+			    	</textarea><br>
+    				<input type="submit" value="Submit">
+    			</form>
+
+
+    			<button onclick="myFunction()">X</button>
+
+				<script>
+				function myFunction() {
+				var elem = document.getElementById("{{image.url}}");
+				elem.parentNode.removeChild(elem);
+				}
+				</script>
+
+			</div>
+		</div>
+	</div>
+</template>
+
+
+
+<template name="GalleryItem">
+	<div class = "col-lg-4 col-md-4 col-sm-6 col-xs-12 gallerymodule" style="
+	overflow:hidden;" id="gallery">
+		<div class="dummy" style="margin-top:90%"> </div>
+		<div class="container">
+			<div class="content">
+				<h2>{{fundredname}}</h2>
+				<a href="/gallery/{{_id}}">
+					<img class ="galleryImage" src= "{{image.url}}"/> 
+				</a>
+				<p style="font-style:italic"> By {{name}}</p>
+				<small style="width:100%;display:block"> {{uploadedAt}}</small>
+				<div class="content-bottom">
+	          		<button onclick="Delete()">X</button>
+
+					<script>
+					function Delete() {
+					  var elem = document.getElementById("gallery");
+					elem.parentNode.removeChild(elem);
+					}
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

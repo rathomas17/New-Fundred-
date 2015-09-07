@@ -1,0 +1,87 @@
+<!--NEW DRAWING TEMPLATE-->
+
+<template name="paint">
+
+  <button id="drawing-mode" class="btn btn-info">Enter drawing mode</button>
+  <div style="display: none;" id="drawing-mode-options">
+    <label for="drawing-mode-selector">Mode:</label>
+    <select id="drawing-mode-selector">
+      <option>Pencil</option>
+      <option>Circle</option>
+      <option>Spray</option>
+      <option>Pattern</option>
+
+      <option>hline</option>
+      <option>vline</option>
+      <option>square</option>
+      <option>diamond</option>
+      <option>texture</option>
+    </select><br>
+    <label for="drawing-line-width">Line width:</label>
+    <input type="range" value="10" min="0" max="150" id="drawing-line-width"><br>
+    <label for="drawing-color">Line color:</label>
+    <input type="color" value="#000000" id="drawing-color"><br>
+    <label for="drawing-shadow-width">Line shadow width:</label>
+    <input type="range" value="0" min="0" max="50" id="drawing-shadow-width"><br>
+  </div>
+
+
+	<button class="btn btn-lg btn-primary" style="float:right; margin-top:10px;" id="submit-drawing"> Continue ></button>
+  <canvas style="center: 0px; " height="852" width="1000" id="c"></canvas>
+
+  <li style="margin-top:10px;"></li>
+
+</template>
+
+<!--END OF NEW DRAWING TEMPLATE-->
+
+
+
+<!--OLD DRAWING TEMPLATE-->
+<template name="Drawing">
+<!--Color Box-->
+	<div class = "container-fluid" style="height:90%;">
+		<div class ="row" style="height:80%; background:#EEE;">
+			<div class="col-lg-4 col-sm-12 col-md-3">
+				<div class="form-group" style="float:right;">
+					<label for="color">Select Color</label>
+					<input type='text' id="color" style="float:right; margin:1em;" />
+
+
+          <!--NEW ADDITIONS-->
+          <button id="circle">Circle</button>
+          <button id="rect">Rectangle</button>
+          <button id="pen">Crayon</button>
+				</div>
+			</div>
+
+
+
+
+      <div class ="col-lg-4 col-md-6 col-sm-12" >
+
+<!--CANVAS-->
+
+<!--<canvas style="left: -30px; border: 2px solid; " height="1070" width="1200" id="c"></canvas>-->
+
+<!--<canvas  class='img- responsive' data-girar="0" width="1200" height="1070"></canvas>-->
+
+<!--CANVAS-->
+
+			</div>
+			<div class="col-lg-4 col-sm-12 col-md-3"></div>
+		</div>
+		<div class ="row">
+			<div class="col-lg-4 col-sm-12 col-md-3"></div>
+			<div class ="col-lg-4 col-md-6 col-sm-12">
+				<div class="form-group">
+				<button class="btn btn-lg btn-primary" style="float:right; margin-top:10px;" id="submit-drawing"> Continue ></button>
+			</div>
+			</div>
+			<div class="col-lg-4 col-sm-12 col-md-3"></div>
+		</div>
+	</div>
+
+</template>
+<!--END OF OLD DRAWING TEMPLATE-->
+
