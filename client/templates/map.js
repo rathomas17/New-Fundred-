@@ -2,7 +2,7 @@
 
 //END OF GOOGLE MAPS JAVASCRIPT
 
-
+/*
  Template.Map.rendered = function() {
 
    function myFunction() {
@@ -60,38 +60,26 @@
  };
 
 
-
-Template.google.events ({
-  'click': function(event){
-    alert('amap clicked', event.target);
-    var myLatLng = {lat: 38.9881, lng: -82.0444};
+*/
 
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: myLatLng
-      });
-
-      var marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        title: 'Hello World!'
-      });
-
-  }
-
-});
+//GOOGLE MAPS JAVASCRIPT
 
 Template.google.helpers({
   mapOptions: function() {
+
     if (GoogleMaps.loaded()) {
-      return {
-        center: new google.maps.LatLng(39.9881, -83.0444),
-        zoom: 12
-      };
-    }
+
+        return {
+          center: new google.maps.LatLng(39.9611111, -82.9988889),
+          zoom: 8
+        };
+      }
+
   }
-});
+
+ });
+
 
 Template.google.onCreated(function(){
   GoogleMaps.ready('google', function(map){
@@ -101,4 +89,4 @@ Template.google.onCreated(function(){
       map: map.instance
     });
   });
-});
+}); 
