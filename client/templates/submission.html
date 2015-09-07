@@ -1,22 +1,4 @@
 
-<template name="Gallery">
-  <button onclick="myFunction()">Clear Space</button>
-  <script>
-    function myFunction() {
-        location.reload();
-    }
-  </script>
-	<div class = "container-fluid">
-		<div class ="row">
-			{{#each fundreds}}
-				{{> GalleryItem}}
-			{{/each}}
-		</div>
-	</div>
-</template>
-
-
-
 
 <template name="Submission">
 
@@ -87,14 +69,4 @@
 		</div>
 		</div>
 	</div>
-</template>
-
-
-<template name="Dropzone">
-    Dropzone for images
-		<div class ="col-lg-4 col-md-4 col-sm-12">
-			<form action="/file-upload" class = "dropzone" id="mydropzone"> </form>
-
-		</div>
-
 </template>

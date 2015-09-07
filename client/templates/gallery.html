@@ -60,3 +60,20 @@
 		</div>
 	</div>
 </template>
+
+
+<template name="Gallery">
+  <button onclick="myFunction()">Clear Space</button>
+  <script>
+    function myFunction() {
+        location.reload();
+    }
+  </script>
+	<div class = "container-fluid">
+		<div class ="row">
+			{{#each fundreds}}
+				{{> GalleryItem}}
+			{{/each}}
+		</div>
+	</div>
+</template>
