@@ -108,13 +108,31 @@ Template.paint.rendered = function(){
 
       return patternCanvas;
     };
-//PATTERN IMAGE
-    var img = new Image();
-    //img.src = '../assets/honey_im_subtle.png';
-    img.src = '/catsback.jpg';
 
-    var texturePatternBrush = new fabric.PatternBrush(canvas);
-    texturePatternBrush.source = img;
+//PATTERN IMAGES
+
+    //SPACE PATTERN
+    var spaceimg = new Image();
+    spaceimg.src = '/spaceback.jpg';
+
+    var spacePatternBrush = new fabric.PatternBrush(canvas);
+    spacePatternBrush.source = spaceimg;
+
+
+    //CAT PATTERN
+    var catimg = new Image();
+    catimg.src = '/catsback.jpg';
+
+    var catsPatternBrush = new fabric.PatternBrush(canvas);
+    catsPatternBrush.source = catimg;
+    canvas.freeDrawingBrush = catsPatternBrush;
+    
+
+
+
+//END OF PATTERN IMAGES
+
+
   }
 
   document.getElementById('drawing-mode-selector').addEventListener('change', function() {
@@ -131,11 +149,11 @@ Template.paint.rendered = function(){
     else if (this.value === 'diamond') {
       canvas.freeDrawingBrush = diamondPatternBrush;
     }
-    else if (this.value === 'texture') {
-      canvas.freeDrawingBrush = texturePatternBrush;
+    else if (this.value === 'space') {
+      canvas.freeDrawingBrush = spacePatternBrush;
     }
     else if (this.value === 'cats') {
-      canvas.freeDrawingBrush = texturePatternBrush;
+      canvas.freeDrawingBrush = catsPatternBrush;
     }
     else {
       canvas.freeDrawingBrush = new fabric[this.value + 'Brush'](canvas);
