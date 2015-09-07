@@ -1,7 +1,5 @@
-
 //NEW PAINT
 Template.paint.rendered = function(){
-
 
  var canvas = new fabric.Canvas('c');
  canvas.setBackgroundImage('rightfund.jpg', canvas.renderAll.bind(canvas), {
@@ -188,7 +186,7 @@ Template.paint.rendered = function(){
           Router.go("/submitdrawing");
         };
       });
-  $('canvas').remove();
+  
    }
 
  });
