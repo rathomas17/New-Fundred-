@@ -283,6 +283,32 @@ Template.google.helpers({
 
 };
 
+Template.google.helpers({
+  mapOptions: function() {
+
+  /*  if (GoogleMaps.loaded()) {
+      return {
+        center: new google.maps.LatLng(39.9611111, -82.9988889),
+        zoom: 8
+      };
+    }*/
+
+    if (GoogleMaps.loaded()) {
+        return {
+          center: new google.maps.LatLng(39.9611111, -82.9988889),
+          zoom: 8
+        };
+      }
+
+
+
+  }
+
+
+
+
+ });
+
 //END OF GOOGLE MAPS JAVASCRIPT
 
 
