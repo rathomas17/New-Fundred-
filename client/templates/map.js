@@ -63,69 +63,59 @@
 
 
 //GOOGLE MAPS JAVASCRIPT
+function initMap() {
+  var myLatLng = {lat: -25.363, lng: 131.044};
 
-Template.google.rendered = function (){
-
-
-$('canvas').remove();
-
-GoogleMaps.load();
-
-
-
-};
-Template.google.events ({
-
-/*'click #google':function (event){
-  var bangalore = { lat: 12.97, lng: 77.59 };
-  var map = new google.maps.Map(document.getElementById('google'), {
-    zoom: 12,
-    center: bangalore
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: myLatLng
   });
-  addMarker (event.latLng, map);
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+}
+
+Template.google.events ({
+  'click': function(event){
+    alert('amap clicked', event.target);
+    var myLatLng = {lat: 38.9881, lng: -82.0444};
 
 
-} */
-  //google.maps.event.addListener(map, 'click', function(event) {
-    //  addMarker(event.latLng, map);
-    //});
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: myLatLng
+      });
 
-
-});
-Template.google.helpers({
-  mapOptions: function() {
-
-  /*  if (GoogleMaps.loaded()) {
-      return {
-        center: new google.maps.LatLng(39.9611111, -82.9988889),
-        zoom: 8
-      };
-    }*/
-
-    if (GoogleMaps.loaded()) {
-
-
-
-        return {
-          center: new google.maps.LatLng(39.9611111, -82.9988889),
-          zoom: 8
-
-
-
-
-        };
-      }
-
-
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: 'Hello World!'
+      });
 
   }
 
+});
 
+Template.google.helpers({
+  mapOptions: function() {
+    if (GoogleMaps.loaded()) {
+      return {
+        center: new google.maps.LatLng(39.9881, -83.0444),
+        zoom: 12
+      };
+    }
+  }
+});
 
-
- });
-
-
-
-
-
+Template.google.onCreated(function(){
+  GoogleMaps.ready('google', function(map){
+    // Add a marker to the map once it's ready
+    var marker = new google.maps.Marker({
+      position: map.options.center,
+      map: map.instance
+    });
+  });
+});
