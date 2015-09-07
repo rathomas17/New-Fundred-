@@ -311,53 +311,6 @@ elem.parentNode.removeChild(elem);
 
 
 
-<!--OLD DRAWING TEMPLATE-->
-<template name="Drawing">
-<!--Color Box-->
-	<div class = "container-fluid" style="height:90%;">
-		<div class ="row" style="height:80%; background:#EEE;">
-			<div class="col-lg-4 col-sm-12 col-md-3">
-				<div class="form-group" style="float:right;">
-					<label for="color">Select Color</label>
-					<input type='text' id="color" style="float:right; margin:1em;" />
-
-
-          <!--NEW ADDITIONS-->
-          <button id="circle">Circle</button>
-          <button id="rect">Rectangle</button>
-          <button id="pen">Crayon</button>
-				</div>
-			</div>
-
-
-
-
-      <div class ="col-lg-4 col-md-6 col-sm-12" >
-
-<!--CANVAS-->
-
-<!--<canvas style="left: -30px; border: 2px solid; " height="1070" width="1200" id="c"></canvas>-->
-
-<!--<canvas  class='img- responsive' data-girar="0" width="1200" height="1070"></canvas>-->
-
-<!--CANVAS-->
-
-			</div>
-			<div class="col-lg-4 col-sm-12 col-md-3"></div>
-		</div>
-		<div class ="row">
-			<div class="col-lg-4 col-sm-12 col-md-3"></div>
-			<div class ="col-lg-4 col-md-6 col-sm-12">
-				<div class="form-group">
-				<button class="btn btn-lg btn-primary" style="float:right; margin-top:10px;" id="submit-drawing"> Continue ></button>
-			</div>
-			</div>
-			<div class="col-lg-4 col-sm-12 col-md-3"></div>
-		</div>
-	</div>
-
-</template>
-<!--END OF OLD DRAWING TEMPLATE-->
 
 <template name= "navigation">
 	<nav class="navbar navbar-default">
@@ -369,8 +322,8 @@ elem.parentNode.removeChild(elem);
         <span class="icon-bar"></span>
 
         <span class="icon-bar"></span>
-        <!--<span class="icon-bar"></span>-->
-        <span class="icon-bar"></span>
+
+
         <span class="icon-bar"></span>
       </button>
     </div>
@@ -382,9 +335,9 @@ elem.parentNode.removeChild(elem);
         <li> <a href="/gallery"><span class="glyphicon glyphicon-th-large"> GALLERY</span></a> </li>
 
         <li><a href="/google"> <span class="glyphicon glyphicon-globe"> GOOGLE MAPS</span></a></li>
-        <!--<li><a href="/submit"> <span class="glyphicon glyphicon-plus"> SUBMIT</span></a></li>-->
-        <li><a href="/dropzone"> <span class="glyphicon glyphicon-plus"> DROPZONE</span></a></li>
-        <li><a href="/paint"> <span class="glyphicon glyphicon-plus"> PAINT</span></a></li>
+
+      <!--  <li><a href="/dropzone"> <span class="glyphicon glyphicon-plus"> DROPZONE</span></a></li>-->
+        <li><a href="/paint"> <span class="glyphicon glyphicon-plus"> SUBMIT</span></a></li>
       </ul>
 
       <form class="navbar-form navbar-left" role="search">

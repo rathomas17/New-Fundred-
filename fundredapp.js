@@ -252,32 +252,6 @@ GoogleMaps.load();
 
 
 
-Template.google.helpers({
-  mapOptions: function() {
-
-  /*  if (GoogleMaps.loaded()) {
-      return {
-        center: new google.maps.LatLng(39.9611111, -82.9988889),
-        zoom: 8
-      };
-    }*/
-
-    if (GoogleMaps.loaded()) {
-        return {
-          center: new google.maps.LatLng(39.9611111, -82.9988889),
-          zoom: 8
-        };
-      }
-
-
-
-  }
-
-
-
-
- });
-
 
 
 
@@ -358,100 +332,8 @@ Template.google.helpers({
  };
 
 
-//OLD PAINT
-Template.Drawing.rendered = function(){
-
-  var canvas = $('canvas'),
-       ctx = canvas[0].getContext('2d'),
-       drawing = false,
-       from, clr;
-
-   var   parentOffset = canvas.offset();
 
 
-
-  canvas.attr({}).hammer().on('dragstart', function(event){
-    drawing = true;
-    console.log(event.gesture.center.pageX - parentOffset.left);
-    from = {x:parseInt(event.gesture.center.pageX - parentOffset.left), y:parseInt(event.gesture.center.pageY- parentOffset.top)};
-  }).on('dragend', function(event){
-    drawing = false;
-  }).on('drag', function(event){
-    if (!drawing)
-      return;
-    console.log(event.gesture.center.pageX - parentOffset.left);
-    var to =  {x:parseInt(event.gesture.center.pageX - parentOffset.left), y:parseInt(event.gesture.center.pageY- parentOffset.top)};
-
-    drawLine(ctx,from,to);
-    from = to;
-
-  });
-//Function for drawing line
-
-
-   function drawLine(ctx,from,to){
-    ctx.beginPath();
-    ctx.moveTo(from.x, from.y);
-    ctx.lineTo(to.x, to.y);
-    ctx.closePath();
-    ctx.stroke();
-   };
-
-
-//color spectrum
-   $("#color").spectrum({
-    color: "#f00",
-    change: function(color) {
-    clr=color.toHexString(); // #ff0000
-    ctx.strokeStyle = clr;
-    }
-});
-//width for draw line
-   ctx.strokeStyle = "#f00";
-   ctx.scale(1200/canvas.width(),1120/canvas.height());
-   make_base();
-
-   document.ontouchmove=function(event){
-    event.preventDefault();
-   };
-
-
-//END OF OLD PAINT
-
-
-//function make_base()....OLD BASE GOES HERE
-function make_base()
-{
-  base_image = new Image();
-  base_image.src = 'fundredtemplate.png';
-  base_image.onload = function(){
-
-    ctx.drawImage(base_image, 0, 0,canvas.width(),canvas.width()*base_image.height/base_image.width);
-  };
-}
-
-
-};
-
-Template.Drawing.events({
-
-  'click #submit-drawing':function(){
-    var can=$('canvas');
-    console.log(can);
-    var img=can[0].toDataURL("image/png");
-    FundredImages.insert(img, function(err, fileObj){
-               if(err){
-                 alert("Error");
-               } else {
-                 // gets the ID of the image that was uploaded
-                 var imageId = fileObj._id;
-                 Session.set('selectedImageId',imageId);
-                 Router.go("/submitdrawing");
-               };
-           });
-
-  }
-})
 
 
  Template.Submission.rendered = function(){
