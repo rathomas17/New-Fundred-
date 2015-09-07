@@ -111,7 +111,7 @@ Template.paint.rendered = function(){
 //PATTERN IMAGE
     var img = new Image();
     //img.src = '../assets/honey_im_subtle.png';
-    img.src = 'smallfund.jpg';
+    img.src = '/catsback.jpg';
 
     var texturePatternBrush = new fabric.PatternBrush(canvas);
     texturePatternBrush.source = img;
@@ -132,6 +132,9 @@ Template.paint.rendered = function(){
       canvas.freeDrawingBrush = diamondPatternBrush;
     }
     else if (this.value === 'texture') {
+      canvas.freeDrawingBrush = texturePatternBrush;
+    }
+    else if (this.value === 'cats') {
       canvas.freeDrawingBrush = texturePatternBrush;
     }
     else {
@@ -186,7 +189,7 @@ Template.paint.rendered = function(){
           Router.go("/submitdrawing");
         };
       });
-  
+
    }
 
  });
