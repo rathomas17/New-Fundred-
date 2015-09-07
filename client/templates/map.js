@@ -3,7 +3,7 @@
 //END OF GOOGLE MAPS JAVASCRIPT
 
 
- Template.Map.rendered = function() {
+ /*Template.Map.rendered = function() {
 
    function myFunction() {
        location.reload();
@@ -57,7 +57,7 @@
 
       });
 
- };
+ };*/
 
 
 
@@ -94,7 +94,7 @@ Template.google.helpers({
 });
 
 Template.google.onCreated(function(){
-  GoogleMaps.ready('map', function(map){
+  GoogleMaps.ready('google', function(map){
     // Add a marker to the map once it's ready
     var marker = new google.maps.Marker({
       position: map.options.center,
