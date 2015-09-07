@@ -1,0 +1,89 @@
+
+/* CSS declarations go here */
+
+canvas{
+	width:0%;
+    height: auto;
+
+}
+.navbar{
+background:white;
+border:none;
+}
+
+.description{
+text-align:center;
+}
+
+.container{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 90%;
+}
+
+.content-bottom{
+	margin-top: 1em;
+}
+
+#header{
+text-align:center;
+background:yellow;
+}
+
+#animation{
+	width: 100%;
+}
+
+#map {
+	height: 400px;
+}
+
+/*ADDED GOOGLE MAP CONTAINER*/
+.map-container {
+  width: 100%;
+  max-width: 100%;
+  height: 500px;
+}
+/*END OF  GOOGLE MAP CONTAINER*/
+
+.dropzone{
+	border:1px green solid;
+	height:10px;
+}
+
+.galleryImage{
+	width:60%;
+}
+
+.navbar{
+	margin-top: 2em;
+}
+
+.mainmenu{
+	background:gray;
+}
+
+.navbar-default .navbar-nav > li > a{
+	color:white;
+}
+
+.gallerymodule{
+	border-right:1px gray solid;
+	border-bottom:1px gray solid;
+	text-align:center;
+}
+
+.GalleryOpen{
+	text-align:center;
+}
+
+.leaflet-popup-content, .leaflet-popup-content-wrapper{
+	background:yellow;
+	text-align: center;
+}
+
+.sp-container {
+	position:relative;
+	float:right;
+}
