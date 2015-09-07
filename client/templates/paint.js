@@ -175,25 +175,20 @@ Template.paint.rendered = function(){
  Template.paint.events({
 
    'click #submit-drawing':function(){
-     var can=$('canvas');
-     console.log(can);
-     var img=can[0].toDataURL("image/png");
-     FundredImages.insert(img, function(err, fileObj){
-                if(err){
-                  alert("Error");
-                } else {
-                  // gets the ID of the image that was uploaded
-                  var imageId = fileObj._id;
-                  Session.set('selectedImageId',imageId);
-                  Router.go("/submitdrawing");
-                };
-            });
-
-
-            $('canvas').remove();
-
-
+      var can=$('canvas');
+      console.log(can);
+      var img=can[0].toDataURL("image/png");
+      FundredImages.insert(img, function(err, fileObj){
+        if(err){
+          alert("Error");
+        } else {
+          // gets the ID of the image that was uploaded
+          var imageId = fileObj._id;
+          Session.set('selectedImageId',imageId);
+          Router.go("/submitdrawing");
+        };
+      });
+  $('canvas').remove();
    }
+
  });
-
-
