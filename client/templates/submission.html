@@ -1,0 +1,70 @@
+<template name="Submission">
+
+	<div class = "container-fluid">
+		<div class ="row">
+			<div class ="col-lg-4 col-md-4 col-sm-12">
+		   <h3 style="color:#05d393"> Submit Your Fundred </h3>
+
+			<div class="form-group">
+				<label for="Name">Your Name</label>
+				<input class="form-control" id="Name" type="text" placeholder="enter your name">
+			</div>
+
+
+			<div class="form-group">
+				<label for="FundredName">Fundred's Name</label>
+				<input class="form-control" id="FundredName" type="text" placeholder="enter fundred's name">
+			</div>
+
+			<div class="form-group">
+				<label for="FundredEmail">E-mail Address</label>
+				<input class="form-control" id="FundredName" type="text" placeholder="enter your e-mail">
+			</div>
+
+
+
+      <div class="form-group">
+        <label for="Zipcode">Your School</label>
+        <input class="form-control" id="FundredName" type="text" placeholder="your current school">
+      </div>
+
+      <div class="form-group">
+        <label for="Zipcode">Grade</label>
+        <input class="form-control" id="FundredName" type="text" placeholder="your current grade level">
+      </div>
+
+
+
+			<div class="form-group">
+				<label for="Zipcode">Your Zipcode</label>
+				<input class="form-control" id="FundredName" type="text" placeholder="your current zipcode">
+			</div>
+
+			<div class="form-group">
+    		<p> *I agree to use my current location <input type="checkbox"/> </p>
+			</div>
+
+			<div class="form-group">
+				<label for="Lat">Latitude:</label>
+				<input id="Lat" type="text" value="{{lat}}" >
+			</div>
+
+			<div class="form-group">
+				<label for="Lng">Longitude:</label>
+				<input id="Lng" type="text" value="{{lng}}" >
+			</div>
+
+			<div class="form-group">
+				<button class="btn btn-default" id="submit-button"> Submit </button>
+			</div>
+
+
+
+			</div>
+
+		<div class ="col-lg-4 col-md-4 col-sm-12">
+			<img style="width:100%" src="{{image.url}}"/>
+		</div>
+		</div>
+	</div>
+</template>

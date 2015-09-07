@@ -94,7 +94,7 @@ Template.google.helpers({
 });
 
 Template.google.onCreated(function(){
-  GoogleMaps.ready('google', function(map){
+  GoogleMaps.ready('map', function(map){
     // Add a marker to the map once it's ready
     var marker = new google.maps.Marker({
       position: map.options.center,

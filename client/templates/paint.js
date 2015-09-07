@@ -125,8 +125,15 @@ Template.paint.rendered = function(){
 
     var catsPatternBrush = new fabric.PatternBrush(canvas);
     catsPatternBrush.source = catimg;
-    canvas.freeDrawingBrush = catsPatternBrush;
     
+
+
+
+    //TEST CAT PATTERN
+
+
+
+    //END TEST CAT PATTERN
 
 
 
