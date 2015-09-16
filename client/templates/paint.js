@@ -1,14 +1,22 @@
 //NEW PAINT
 Template.paint.rendered = function(){
 
+
+
  var canvas = new fabric.Canvas('c');
+
+
  canvas.setBackgroundImage('rightfund.jpg', canvas.renderAll.bind(canvas), {
-    width: canvas.width,
-    height: canvas.height,
+   width: canvas.width,
+   height: canvas.height,
+
+
     // Needed to position backgroundImage at 0/0
     originX: 'left',
     originY: 'top'
   });
+
+
 
   var drawingModeEl = document.getElementById('drawing-mode'),
     drawingOptionsEl = document.getElementById('drawing-mode-options'),
@@ -125,7 +133,7 @@ Template.paint.rendered = function(){
 
     var catsPatternBrush = new fabric.PatternBrush(canvas);
     catsPatternBrush.source = catimg;
-    
+
 
 
 
