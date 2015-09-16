@@ -53,6 +53,7 @@
 					function Delete() {
 					  var elem = document.getElementById("gallery");
 					elem.parentNode.removeChild(elem);
+					//TODO: Also delete itemfrom the database.
 					}
 					</script>
 				</div>
@@ -63,17 +64,11 @@
 
 
 <template name="Gallery">
-  <button onclick="myFunction()">Clear Space</button>
-  <script>
-    function myFunction() {
-        location.reload();
-    }
-  </script>
-	<div class = "container-fluid">
-		<div class ="row">
-			{{#each fundreds}}
-				{{> GalleryItem}}
-			{{/each}}
+		<div class = "container-fluid">
+			<div class ="row">
+				{{#each fundreds}}
+					{{> GalleryItem}}
+				{{/each}}
+			</div>
 		</div>
-	</div>
 </template>
