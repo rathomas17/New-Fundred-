@@ -65,7 +65,7 @@
         return "waiting for longitude"
       },
       image: function(){
-    return FundredImages.findOne(Session.get("selectedImageId"));
+        return FundredImages.findOne(Session.get("selectedImageId"));
   }
  });
 
@@ -77,7 +77,7 @@
   var lng = $("#Lng").val();
   var imgId = Session.get("selectedImageId");
 
-  Fundreds.insert({name:name,fundredname:fundredname,location:[lat,lng],imageId:imgId,uploadedAt: new Date(),like:0});
+  Fundreds.insert({name:name,fundredname:fundredname,location:[lat,lng],imageId:imgId,uploadedAt: new Date(),like:0});;
   Router.go("/gallery");
 }
 
