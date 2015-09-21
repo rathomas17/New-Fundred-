@@ -5,6 +5,15 @@
 				<h1>{{fundredname}}</h1>
 				<p style="font-style:italic">by {{name}}</p>
 				<img style="width:80%" src="{{image.url}}"/>
+
+						<!--Email Button Code-->
+						<a href="mailto:?subject=Take a look at this Fundred!&amp;body=Check out this site http://www.fundtest2.meteor.com."
+   					title="Share by Email">
+  					<img src="http://png-2.findicons.com/files/icons/573/must_have/48/mail.png">
+						</a>
+						<!--Email Button Code-->
+
+
 		        <!--Facebook share code-->
 		        <a href="http://www.facebook.com/sharer.php?u=http://<?php echo get_permalink(); ?>" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" /></a>
 		        <!--Facebook share code-->
@@ -42,7 +51,7 @@
 			<div class="content">
 				<h2>{{fundredname}}</h2>
 				<a href="/gallery/{{_id}}">
-					<img class ="galleryImage" src= "{{image.url}}"/> 
+					<img class ="galleryImage" src= "{{image.url}}"/>
 				</a>
 				<p style="font-style:italic"> By {{name}}</p>
 				<small style="width:100%;display:block"> {{uploadedAt}}</small>
