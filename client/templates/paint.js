@@ -6,7 +6,7 @@ Template.paint.rendered = function(){
  var canvas = new fabric.Canvas('c');
 
 
- canvas.setBackgroundImage('rightfund.jpg', canvas.renderAll.bind(canvas), {
+ canvas.setBackgroundImage('blankface.jpg', canvas.renderAll.bind(canvas), {
    width: canvas.width,
    height: canvas.height,
 

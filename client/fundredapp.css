@@ -7,10 +7,9 @@ canvas{
 
 }
 .navbar{
-background:white;
+background-color: #F3FADD;
 border:none;
 }
-
 .description{
 text-align:center;
 }
@@ -61,11 +60,11 @@ background:yellow;
 }
 
 .mainmenu{
-	background:gray;
+	background-color:#F3FADD;
 }
 
 .navbar-default .navbar-nav > li > a{
-	color:white;
+	color:#637B15;
 }
 
 .gallerymodule{
