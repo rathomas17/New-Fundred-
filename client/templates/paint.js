@@ -2,9 +2,14 @@
 Template.paint.rendered = function(){
 
 
-
+//dollar face
  var canvas = new fabric.Canvas('c');
+//dollar back
  var canvas2 = new fabric.Canvas('c2');
+//dollar face trim
+ var canvas3 = new fabric.Canvas('cf1');
+
+
 
  canvas.setBackgroundImage('blankface.jpg', canvas.renderAll.bind(canvas), {
    width: canvas.width,
@@ -26,6 +31,16 @@ Template.paint.rendered = function(){
      originY: 'top'
    });
 
+//Third canvas that has the blank face trim
+   canvas3.setBackgroundImage('blankfacetrim.png', canvas.renderAll.bind(canvas3), {
+     width: canvas.width,
+     height: canvas.height,
+
+
+      // Needed to position backgroundImage at 0/0
+      originX: 'left',
+      originY: 'top'
+    });
 
 
   var drawingModeEl = document.getElementById('drawing-mode'),
@@ -238,6 +253,8 @@ Template.paint.rendered = function(){
  };
 
  Template.paint.events({
+
+
 
    'click #submit-drawing':function(){
       var can=$('canvas');
