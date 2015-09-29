@@ -1,12 +1,12 @@
 //NEW PAINT
-Template.paint.rendered = function(){
+Template.paintback.rendered = function(){
 
 
 
  var canvas = new fabric.Canvas('c');
- var canvas2 = new fabric.Canvas('c2');
 
- canvas.setBackgroundImage('blankface.jpg', canvas.renderAll.bind(canvas), {
+
+ canvas.setBackgroundImage('blankback.jpg', canvas.renderAll.bind(canvas), {
    width: canvas.width,
    height: canvas.height,
 
@@ -15,16 +15,6 @@ Template.paint.rendered = function(){
     originX: 'left',
     originY: 'top'
   });
-
-  canvas2.setBackgroundImage('blankback.jpg', canvas.renderAll.bind(canvas2), {
-    width: canvas.width,
-    height: canvas.height,
-
-
-     // Needed to position backgroundImage at 0/0
-     originX: 'left',
-     originY: 'top'
-   });
 
 
 
@@ -38,7 +28,6 @@ Template.paint.rendered = function(){
 
   drawingModeEl.onclick = function() {
     canvas.isDrawingMode = !canvas.isDrawingMode;
-    canvas2.isDrawingMode = !canvas2.isDrawingMode;
     if (canvas.isDrawingMode) {
       drawingModeEl.innerHTML = 'Cancel drawing mode';
       drawingOptionsEl.style.display = '';
@@ -49,14 +38,7 @@ Template.paint.rendered = function(){
     }
   };
 
-
-
-
   canvas.on('path:created', function() {
-    updateComplexity();
-  });
-
-  canvas2.on('path:created', function() {
     updateComplexity();
   });
 
@@ -193,39 +175,29 @@ Template.paint.rendered = function(){
     }
     else {
       canvas.freeDrawingBrush = new fabric[this.value + 'Brush'](canvas);
-      canvas2.freeDrawingBrush = new fabric[this.value + 'Brush'](canvas2);
     }
 
     if (canvas.freeDrawingBrush) {
       canvas.freeDrawingBrush.color = drawingColorEl.value;
-      canvas2.freeDrawingBrush.color = drawingColorEl.value;
       canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
-      canvas2.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
       canvas.freeDrawingBrush.shadowBlur = parseInt(drawingShadowWidth.value, 10) || 0;
-      canvas2.freeDrawingBrush.shadowBlur = parseInt(drawingShadowWidth.value, 10) || 0;
     }
   });
 
   drawingColorEl.onchange = function() {
     canvas.freeDrawingBrush.color = drawingColorEl.value;
-    canvas2.freeDrawingBrush.color = drawingColorEl.value;
   };
   drawingLineWidthEl.onchange = function() {
     canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
-    canvas2.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
   };
   drawingShadowWidth.onchange = function() {
     canvas.freeDrawingBrush.shadowBlur = parseInt(drawingShadowWidth.value, 10) || 0;
-    canvas2.freeDrawingBrush.shadowBlur = parseInt(drawingShadowWidth.value, 10) || 0;
   };
 
   if (canvas.freeDrawingBrush) {
     canvas.freeDrawingBrush.color = drawingColorEl.value;
-    canvas2.freeDrawingBrush.color = drawingColorEl.value;
     canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
-    canvas2.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
     canvas.freeDrawingBrush.shadowBlur = 0;
-    canvas2.freeDrawingBrush.shadowBlur = 0;
   }
 
   document.getElementById('canvas-background-picker').addEventListener('change', function() {
@@ -241,10 +213,7 @@ Template.paint.rendered = function(){
 
    'click #submit-drawing':function(){
       var can=$('canvas');
-      var can2=$('canvas2');
       console.log(can);
-      console.log(can2);
-      var img=can[0].toDataURL("image/png");
       var img=can[0].toDataURL("image/png");
       FundredImages.insert(img, function(err, fileObj){
         if(err){
@@ -252,9 +221,7 @@ Template.paint.rendered = function(){
         } else {
           // gets the ID of the image that was uploaded
           var imageId = fileObj._id;
-          var image2Id = fileObj._id;
           Session.set('selectedImageId',imageId);
-          Session.set('selectedImage2Id',image2Id);
           Router.go("/submitdrawing");
         };
       });
