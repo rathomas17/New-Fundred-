@@ -257,25 +257,35 @@ Template.paint.rendered = function(){
 
 
    'click #submit-drawing':function(){
-      var can=$('canvas');
-      var can2=$('canvas2');
+      var can=$('#c');
+      var can2=$('#c2');
       console.log(can);
       console.log(can2);
       var img=can[0].toDataURL("image/png");
-      var img=can[0].toDataURL("image/png");
+      var img2=can2[0].toDataURL("image2/png");
+      //var img2=can2[0].toDataURL("image2/png");
       FundredImages.insert(img, function(err, fileObj){
         if(err){
           alert("Error");
         } else {
           // gets the ID of the image that was uploaded
           var imageId = fileObj._id;
-          var image2Id = fileObj._id;
           Session.set('selectedImageId',imageId);
-          Session.set('selectedImage2Id',image2Id);
-          Router.go("/submitdrawing");
+          console.log('imageid'+imageId);
         };
       });
 
+      FundredImages.insert(img2, function(err, fileObj){
+        if(err){
+          alert("Error");
+        } else {
+          // gets the ID of the image that was uploaded
+          var image2Id = fileObj._id;
+          Session.set('selectedImage2Id',image2Id);
+          console.log('image2id'+image2Id)
+          Router.go("/submitdrawing");
+        };
+      });
    }
 
  });

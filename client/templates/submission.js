@@ -66,7 +66,10 @@
       },
       image: function(){
         return FundredImages.findOne(Session.get("selectedImageId"));
-  }
+      },
+      image2: function(){
+        return FundredImages.findOne(Session.get("selectedImage2Id"));
+      }
  });
 
  Template.Submission.events ({

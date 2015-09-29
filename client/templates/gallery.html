@@ -5,6 +5,7 @@
 				<h1>{{fundredname}}</h1>
 				<p style="font-style:italic">by {{name}}</p>
 				<img style="width:80%" src="{{image.url}}"/>
+				<img style="width:80%" src="{{image2.url}}"/>
 
 						<!--Email Button Code-->
 						<a href="mailto:?subject=Take a look at this Fundred!&amp;body=Check out this site http://www.fundtest2.meteor.com."
@@ -32,6 +33,7 @@
 				<script>
 				function myFunction() {
 				var elem = document.getElementById("{{image.url}}");
+				var elem2 = document.getElementById("{{image2.url}}");
 				elem.parentNode.removeChild(elem);
 				}
 				</script>
@@ -52,7 +54,7 @@
 				<h2>{{fundredname}}</h2>
 				<a href="/gallery/{{_id}}">
 					<img class ="galleryImage" src= "{{image.url}}"/>
-					<img class ="galleryImage" src= "{{image.url}}"/>
+					<img class ="galleryImage" src= "{{image2.url}}"/>
 				</a>
 				<p style="font-style:italic"> By {{name}}</p>
 				<small style="width:100%;display:block"> {{uploadedAt}}</small>

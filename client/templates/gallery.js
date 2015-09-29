@@ -16,7 +16,10 @@ Template.Gallery.helpers({
 Template.GalleryItem.helpers({
   image: function(){
     return FundredImages.findOne(this.imageId);
+
   }
+
+
 });
 
 Template.GalleryOpen.helpers({
