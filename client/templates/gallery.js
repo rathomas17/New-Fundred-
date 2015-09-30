@@ -16,7 +16,7 @@ Template.Gallery.helpers({
 Template.GalleryItem.helpers({
   image: function(){
     return FundredImages.findOne(this.imageId);
-
+    return FundredImages.findOne(this.image2Id);
   }
 
 
@@ -25,5 +25,6 @@ Template.GalleryItem.helpers({
 Template.GalleryOpen.helpers({
   image: function(){
     return FundredImages.findOne(this.imageId);
+    return FundredImages.findOne(this.image2Id);
   }
 });

@@ -87,15 +87,3 @@ background:yellow;
 	position:relative;
 	float:right;
 }
-
-.wrapper {
-    position: relative;
-    width: 923px;
-    height: 392px;
-}
-
-.wrapper canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
