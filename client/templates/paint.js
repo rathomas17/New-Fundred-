@@ -11,6 +11,45 @@ Template.paint.rendered = function(){
 
 
 
+
+
+//uploaded image javascript
+
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp").change(function(){
+    readURL(this);
+
+    canvas.setBackgroundImage('blankback.jpg', canvas.renderAll.bind(canvas), {
+      width: canvas.width,
+      height: canvas.height,
+
+
+       // Needed to position backgroundImage at 0/0
+       originX: 'left',
+       originY: 'top'
+
+    });
+});
+
+
+//end of uploaded image javascript
+
+
+
+
+
  canvas.setBackgroundImage('blankface.jpg', canvas.renderAll.bind(canvas), {
    width: canvas.width,
    height: canvas.height,

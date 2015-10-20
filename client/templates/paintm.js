@@ -5,6 +5,8 @@ Template.mobilepaint.rendered = function(){
 
  var canvas = new fabric.Canvas('c');
 
+ var canvas2 = new fabric.Canvas('c2');
+
 
  canvas.setBackgroundImage('blankfacemobile.jpg', canvas.renderAll.bind(canvas), {
    width: canvas.width,
@@ -15,6 +17,16 @@ Template.mobilepaint.rendered = function(){
     originX: 'left',
     originY: 'top'
   });
+
+  canvas2.setBackgroundImage('blankback.jpg', canvas.renderAll.bind(canvas2), {
+    width: canvas.width,
+    height: canvas.height,
+
+
+     // Needed to position backgroundImage at 0/0
+     originX: 'left',
+     originY: 'top'
+   });
 
 
 
@@ -93,7 +105,7 @@ Template.mobilepaint.rendered = function(){
 
       return patternCanvas;
     };
-
+//Diamond Brush Pattern
     var diamondPatternBrush = new fabric.PatternBrush(canvas);
     diamondPatternBrush.getPatternSrc = function() {
 

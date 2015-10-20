@@ -3,10 +3,15 @@
 <template name="paint">
 	<button class="btn btn-lg btn-primary" style="float:right; margin-top:10px;" id="submit-drawing"> Continue ></button>
   <button id="drawing-mode" class="btn btn-info">Enter drawing mode</button>
-	<input type="file" name="datafile" size="40" value="Image">
+	<input type="file" name="frontupload" size="40" value="Image">
 	<input type="submit" value="Upload Front">
-	<input type="file" name="datafile" size="40" value="Image">
+	<input type="file" name="backupload" size="40" value="Image">
 	<input type="submit" value="Upload Back">
+
+	<form id="form1" runat="server">
+			<input type='file' id="imgInp" />
+			<img id="blah" src="#" alt="your image" />
+	</form>
 
 
 
