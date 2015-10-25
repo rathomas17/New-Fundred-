@@ -39,6 +39,20 @@ background:yellow;
 	height: 400px;
 }
 
+#reflection_overlay {
+    background-image:url(blankfacetrim.png);
+    background-repeat:no-repeat;
+    width: 195px;
+    pointer-events:none;
+}
+
+#reflection_overlay {
+    background-image:url(blankbacktrim.png);
+    background-repeat:no-repeat;
+    width: 195px;
+    pointer-events:none;
+}
+
 /*ADDED GOOGLE MAP CONTAINER*/
 .map-container {
   width: 100%;
