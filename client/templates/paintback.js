@@ -6,7 +6,7 @@ Template.paintback.rendered = function(){
  var canvas = new fabric.Canvas('c');
 
 
- canvas.setBackgroundImage('blankback.jpg', canvas.renderAll.bind(canvas), {
+ canvas.setBackgroundImage('catsback.jpg', canvas.renderAll.bind(canvas), {
    width: canvas.width,
    height: canvas.height,
 
@@ -29,7 +29,7 @@ Template.paintback.rendered = function(){
   drawingModeEl.onclick = function() {
     canvas.isDrawingMode = !canvas.isDrawingMode;
     if (canvas.isDrawingMode) {
-      drawingModeEl.innerHTML = 'Cancel drawing mode';
+      drawingModeEl.innerHTML = 'Exit drawing mode';
       drawingOptionsEl.style.display = '';
     }
     else {
@@ -121,7 +121,7 @@ Template.paintback.rendered = function(){
 
     //SPACE PATTERN
     var spaceimg = new Image();
-    spaceimg.src = '/spaceback.jpg';
+    spaceimg.src = 'clearblankback.jpg';
 
     var spacePatternBrush = new fabric.PatternBrush(canvas);
     spacePatternBrush.source = spaceimg;
@@ -164,14 +164,11 @@ Template.paintback.rendered = function(){
     else if (this.value === 'diamond') {
       canvas.freeDrawingBrush = diamondPatternBrush;
     }
-    else if (this.value === 'space') {
+    else if (this.value === 'eraser') {
       canvas.freeDrawingBrush = spacePatternBrush;
     }
     else if (this.value === 'cats') {
       canvas.freeDrawingBrush = catsPatternBrush;
-    }
-    else if (this.value === 'picture') {
-      canvas.freeDrawingBrush = vLinePatternBrush;
     }
     else {
       canvas.freeDrawingBrush = new fabric[this.value + 'Brush'](canvas);

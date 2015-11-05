@@ -1,5 +1,5 @@
 //NEW PAINT
-Template.mobilepaint.rendered = function(){
+/*Template.mobilepaint.rendered = function(){
 
 
 
@@ -238,3 +238,4 @@ Template.mobilepaint.rendered = function(){
    }
 
  });
+*/
