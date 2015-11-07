@@ -188,6 +188,10 @@ $("#imgInp").change(function(){
       return patternCanvas;
     };
 
+//TEST 2
+//END TEST 2
+
+
     var squarePatternBrush = new fabric.PatternBrush(canvas);
     squarePatternBrush.getPatternSrc = function() {
 
@@ -245,6 +249,11 @@ $("#imgInp").change(function(){
     catsPatternBrush.source = catimg;
 
 
+    var eraser = new Image();
+    eraser.src = 'clearblankface.jpg';
+
+    //var eraserPatternBrush = new fabric.PatternBrush(canvas);
+    //eraserPatternBrush.source = eraser;
 
 
 
