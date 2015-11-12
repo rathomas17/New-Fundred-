@@ -1,5 +1,5 @@
 
- Template.Submission.rendered = function(){
+ Template.groupregistration.rendered = function(){
 
    function myFunction() {
     location.reload();
@@ -50,7 +50,7 @@
     });
 
 };
- Template.Submission.helpers({
+ Template.groupregistration.helpers({
 
       lat: function(){
         if (Geolocation.latLng() !=null)
@@ -72,17 +72,14 @@
       }
  });
 
- Template.Submission.events ({
-"click #submit-button": function(){
+ Template.groupregistration.events ({
+"click #todraw": function(){
   var name = $("#Name").val();
   var fundredname = $("#FundredName").val();
   var lat = $("#Lat").val();
   var lng = $("#Lng").val();
-  var imgId = Session.get("selectedImageId");
-  var img2Id = Session.get("selectedImage2Id");
 
-  Fundreds.insert({name:name,fundredname:fundredname,location:[lat,lng],imageId:imgId, uploadedAt: new Date(),like:0});;
-  Router.go("/gallery");
+  Router.go("/paint");
 }
 
 });

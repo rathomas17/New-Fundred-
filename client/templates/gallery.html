@@ -1,4 +1,6 @@
 <template name="GalleryOpen">
+
+
 	<div class = "container-fluid">
 		<div class ="row">
 			<div class = "col-lg-12 col-md-12 col-sm-12 GalleryOpen">
@@ -52,6 +54,7 @@
 
 
 
+
 <template name="GalleryItem">
 	<div class = "col-lg-4 col-md-4 col-sm-6 col-xs-12 gallerymodule" style="
 	overflow:hidden;" id="gallery">
@@ -75,6 +78,8 @@
 					//TODO: Also delete itemfrom the database.
 					}
 					</script>
+
+				
 				</div>
 			</div>
 		</div>
@@ -83,6 +88,28 @@
 
 
 <template name="Gallery">
+
+<!--	<form method="get" action="http://www.google.com/search">
+<div style="border:1px solid black;padding:4px;width:20em; margin: 0px auto 0px auto">
+<table border="0" cellpadding="0" >
+<tr><td class="center">
+<input type="text" name="q" size="25" maxlength="255" value="" />
+<input type="submit" value="Google Search" /></td></tr>
+<tr><td align="center" style="font-size:75%">
+<input type="checkbox" name="sitesearch"
+value="fundred2.meteor.com" checked="checked" /> only search Fundred Drawing Tool<br />
+</td></tr></table>
+</div>
+
+</form>-->
+<div class ="center">
+
+<input type="text" id="findInput" value="" size="20" />
+    <button id="findNext">Search</button>
+
+</div>
+
+
 		<div class = "container-fluid">
 			<div class ="row">
 				{{#each fundreds}}
