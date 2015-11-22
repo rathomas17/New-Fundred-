@@ -81,8 +81,13 @@
   var imgId = Session.get("selectedImageId");
   var img2Id = Session.get("selectedImage2Id");
 
-  Fundreds.insert({name:name,fundredname:fundredname,location:[lat,lng],imageId:imgId, uploadedAt: new Date(),like:0});;
-  Router.go("/google");
+  Marker.insert({name:name, latitude: lat, longitude: lng}, function(marker){
+    Fundreds.insert({name:name,fundredname:fundredname,location:[lat,lng],imageId:imgId, uploadedAt: new Date(),like:0, marker_id:marker._id});
+    Router.go("/google");
+  });
+
+
+
 }
 
 });
