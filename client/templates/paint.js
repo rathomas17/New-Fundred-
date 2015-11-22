@@ -129,13 +129,6 @@ $("#imgInp").change(function(){
 
 //end new new
 
-  canvas.on('path:created', function() {
-    updateComplexity();
-  });
-
-  canvas2.on('path:created', function() {
-    updateComplexity();
-  });
 
   if (fabric.PatternBrush) {
     var vLineDef = function() {
