@@ -82,7 +82,7 @@
   var img2Id = Session.get("selectedImage2Id");
 
   Fundreds.insert({name:name,fundredname:fundredname,location:[lat,lng],imageId:imgId, uploadedAt: new Date(),like:0});;
-  Router.go("/gallery");
+  Router.go("/google");
 }
 
 });

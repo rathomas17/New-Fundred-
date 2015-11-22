@@ -6,8 +6,7 @@ Template.paint.rendered = function(){
  var canvas = new fabric.Canvas('c');
 //dollar back
  var canvas2 = new fabric.Canvas('c2');
-//dollar face trim
- var canvas3 = new fabric.Canvas('cf1');
+
 
 
 
@@ -93,16 +92,7 @@ $("#imgInp").change(function(){
     });
 
 
-//Third canvas that has the blank face trim
-   canvas3.setBackgroundImage('blankfacetrim.png', canvas.renderAll.bind(canvas3), {
-     width: canvas.width,
-     height: canvas.height,
 
-
-      // Needed to position backgroundImage at 0/0
-      originX: 'left',
-      originY: 'top'
-    });
 
 
   var drawingModeEl = document.getElementById('drawing-mode'),
@@ -114,6 +104,7 @@ $("#imgInp").change(function(){
 
 
   drawingModeEl.onclick = function() {
+    debugger;
     canvas.isDrawingMode = !canvas.isDrawingMode;
     canvas2.isDrawingMode = !canvas2.isDrawingMode;
     if (canvas.isDrawingMode) {
@@ -128,6 +119,15 @@ $("#imgInp").change(function(){
 
 
 
+//begin new
+
+  //drawingModeEl.onclick
+
+
+
+//new new
+
+//end new new
 
   canvas.on('path:created', function() {
     updateComplexity();
@@ -138,8 +138,7 @@ $("#imgInp").change(function(){
   });
 
   if (fabric.PatternBrush) {
-    var vLinePatternBrush = new fabric.PatternBrush(canvas);
-    vLinePatternBrush.getPatternSrc = function() {
+    var vLineDef = function() {
 
       var patternCanvas = fabric.document.createElement('canvas');
       patternCanvas.width = patternCanvas.height = 10;
@@ -170,12 +169,28 @@ $("#imgInp").change(function(){
       return patternCanvas2;
     };
 
-    var hLinePatternBrush = new fabric.PatternBrush(canvas);
-    hLinePatternBrush.getPatternSrc = function() {
+
+    var vLinePatternBrush = new fabric.PatternBrush(canvas);
+    vLinePatternBrush.getPatternSrc = vLineDef;
+
+    var vLinePatternBrush2 = new fabric.PatternBrush(canvas2);
+    vLinePatternBrush2.getPatternSrc = vLineDef;
+
+
+
+
+
+
+    var hLineDef = function() {
 
       var patternCanvas = fabric.document.createElement('canvas');
       patternCanvas.width = patternCanvas.height = 10;
       var ctx = patternCanvas.getContext('2d');
+
+      var patternCanvas2 = fabric.document.createElement('canvas2');
+      patternCanvas2.width = patternCanvas2.height = 10;
+      var ctx2 = patternCanvas2.getContext('2d');
+
 
       ctx.strokeStyle = this.color;
       ctx.lineWidth = 5;
@@ -185,9 +200,25 @@ $("#imgInp").change(function(){
       ctx.closePath();
       ctx.stroke();
 
+      ctx2.strokeStyle = this.color;
+      ctx2.lineWidth = 5;
+      ctx2.beginPath();
+      ctx2.moveTo(5, 0);
+      ctx2.lineTo(5, 10);
+      ctx2.closePath();
+      ctx2.stroke();
+
+
       return patternCanvas;
+      return patternCanvas2;
+
     };
 
+    var hLinePatternBrush = new fabric.PatternBrush(canvas);
+    hLinePatternBrush.getPatternSrc = hLineDef;
+
+    var hLinePatternBrush2 = new fabric.PatternBrush(canvas2);
+    hLinePatternBrush2.getPatternSrc = hLineDef;
 //TEST 2
 //END TEST 2
 
@@ -205,6 +236,7 @@ $("#imgInp").change(function(){
       ctx.fillRect(0, 0, squareWidth, squareWidth);
 
       return patternCanvas;
+
     };
 
     var diamondPatternBrush = new fabric.PatternBrush(canvas);
@@ -218,6 +250,7 @@ $("#imgInp").change(function(){
         angle: 45,
         fill: this.color
       });
+
 
       var canvasWidth = rect.getBoundingRectWidth();
 
@@ -272,28 +305,33 @@ $("#imgInp").change(function(){
 
 
   document.getElementById('drawing-mode-selector').addEventListener('change', function() {
-
     if (this.value === 'hline') {
       canvas.freeDrawingBrush = vLinePatternBrush;
+      canvas2.freeDrawingBrush = vLinePatternBrush;
     }
     else if (this.value === 'vline') {
       canvas.freeDrawingBrush = hLinePatternBrush;
+      canvas2.freeDrawingBrush = hLinePatternBrush;
     }
     else if (this.value === 'square') {
       canvas.freeDrawingBrush = squarePatternBrush;
+      canvas2.freeDrawingBrush = squarePatternBrush;
     }
     else if (this.value === 'diamond') {
       canvas.freeDrawingBrush = diamondPatternBrush;
+      canvas2.freeDrawingBrush = diamondPatternBrush;
     }
     else if (this.value === 'eraser') {
       canvas.freeDrawingBrush = spacePatternBrush;
-
+      canvas2.freeDrawingBrush = spacePatternBrush;
     }
     else if (this.value === 'cats') {
       canvas.freeDrawingBrush = catsPatternBrush;
+      canvas2.freeDrawingBrush = catsPatternBrush;
     }
     else if (this.value === 'picture') {
       canvas.freeDrawingBrush = vLinePatternBrush;
+      canvas2.freeDrawingBrush = vLinePatternBrush;
     }
     else {
       canvas.freeDrawingBrush = new fabric[this.value + 'Brush'](canvas);

@@ -87,12 +87,13 @@
 					    handleLocationError(false, infoWindow, map.getCenter());
 					  }
 
-debugger;
+
 						map.addListener('click', function(event) {
-							addMarker(event.latLng);
+							debugger;
+							addMarker(event.latLng, map);
 						});
 
-						debugger;
+
 
 					}
 
@@ -110,10 +111,10 @@ debugger;
 
 
 // Adds a marker to the map and push to the array.
-function addMarker(location) {
+function addMarker(location, _map) {
   var marker = new google.maps.Marker({
     position: location,
-    map: map
+    map: _map
   });
   markers.push(marker);
 }
