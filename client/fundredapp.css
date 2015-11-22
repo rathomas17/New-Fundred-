@@ -1,0 +1,109 @@
+
+/* CSS declarations go here */
+
+canvas{
+	width:0%;
+    height: auto;
+
+}
+.navbar{
+background-color: #F3FADD;
+border:none;
+}
+
+.description{
+text-align:center;
+}
+
+.container{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 90%;
+}
+
+.content-bottom{
+	margin-top: 1em;
+}
+
+
+/*new intro*/
+
+
+/* end new intro*/
+
+#header{
+text-align:center;
+background:yellow;
+}
+
+#animation{
+	width: 100%;
+}
+
+#map {
+	height: 400px;
+}
+
+#reflection_overlay {
+    background-image:url(blankfacetrim.png);
+    background-repeat:no-repeat;
+    width: 195px;
+    pointer-events:none;
+}
+
+#reflection_overlay {
+    background-image:url(blankbacktrim.png);
+    background-repeat:no-repeat;
+    width: 195px;
+    pointer-events:none;
+}
+
+/*ADDED GOOGLE MAP CONTAINER*/
+.map-container {
+  width: 100%;
+  max-width: 100%;
+  height: 500px;
+}
+/*END OF  GOOGLE MAP CONTAINER*/
+
+.dropzone{
+	border:1px green solid;
+	height:10px;
+}
+
+.galleryImage{
+	width:60%;
+}
+
+.navbar{
+	margin-top: 2em;
+}
+
+.mainmenu{
+	background-color:#F3FADD;
+}
+
+.navbar-default .navbar-nav > li > a{
+	color:#637B15;
+}
+
+.gallerymodule{
+	border-right:1px gray solid;
+	border-bottom:1px gray solid;
+	text-align:center;
+}
+
+.GalleryOpen{
+	text-align:center;
+}
+
+.leaflet-popup-content, .leaflet-popup-content-wrapper{
+	background:yellow;
+	text-align: center;
+}
+
+.sp-container {
+	position:relative;
+	float:right;
+}

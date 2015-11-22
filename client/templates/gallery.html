@@ -1,0 +1,120 @@
+<template name="GalleryOpen">
+
+
+	<div class = "container-fluid">
+		<div class ="row">
+			<div class = "col-lg-12 col-md-12 col-sm-12 GalleryOpen">
+				<h1>{{fundredname}}</h1>
+
+				<img style="width:80%" src="{{image.url}}"/>
+				<img style="width:80%" src="{{image2.url}}"/>
+
+						<!--Email Button Code-->
+						<a href="mailto:?subject=Take a look at this Fundred!&amp;body=Check out this site http://www.fundtest2.meteor.com."
+   					title="Share by Email">
+  					<img src="http://png-2.findicons.com/files/icons/573/must_have/48/mail.png">
+						</a>
+						<!--Email Button Code-->
+
+					<!--	<a hred ="mailto:?subject=Take a look at this Fundred!&amp;body=Check out this site http://www.fundtest2.meteor.com."
+						title="Share by Email">
+						<img src="http://png.2findicons.com/files/icons/573/must_have/48/mail.png.">
+					</a>-->
+
+
+
+
+		        <!--Facebook share code-->
+		        <a href="http://www.facebook.com/sharer.php?u=http://<?php echo get_permalink(); ?>" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" /></a>
+		        <!--Facebook share code-->
+						<h3>Write a comment</h3>
+
+
+        		<form action="/html/tags/html_form_tag_action.cfm" method="post">
+			    	<textarea name="comments" id="comments" style="width:150px;height:100px;font-family:cursive;border:solid 1px #6DB72C;" >Enter your comments here...
+			    	</textarea><br>
+    				<input type="submit" value="Submit">
+    			</form>
+
+
+    			<button onclick="myFunction()">X</button>
+
+				<script>
+				function myFunction() {
+				var elem = document.getElementById("{{image.url}}");
+				var elem2 = document.getElementById("{{image2.url}}");
+				elem.parentNode.removeChild(elem);
+				}
+				</script>
+
+			</div>
+		</div>
+	</div>
+</template>
+
+
+
+
+<template name="GalleryItem">
+	<div class = "col-lg-4 col-md-4 col-sm-6 col-xs-12 gallerymodule" style="
+	overflow:hidden;" id="gallery">
+		<div class="dummy" style="margin-top:90%"> </div>
+		<div class="container">
+			<div class="content">
+				<h2>{{fundredname}}</h2>
+				<a href="/gallery/{{_id}}">
+					<img class ="galleryImage" src= "{{image.url}}"/>
+					<img class ="galleryImage" src= "{{image2.url}}"/>
+				</a>
+
+				<small style="width:100%;display:block"> {{uploadedAt}}</small>
+				<div class="content-bottom">
+	          		<button onclick="Delete()">X</button>
+
+					<script>
+					function Delete() {
+					  var elem = document.getElementById("gallery");
+					elem.parentNode.removeChild(elem);
+					//TODO: Also delete itemfrom the database.
+					}
+					</script>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="Gallery">
+
+<!--	<form method="get" action="http://www.google.com/search">
+<div style="border:1px solid black;padding:4px;width:20em; margin: 0px auto 0px auto">
+<table border="0" cellpadding="0" >
+<tr><td class="center">
+<input type="text" name="q" size="25" maxlength="255" value="" />
+<input type="submit" value="Google Search" /></td></tr>
+<tr><td align="center" style="font-size:75%">
+<input type="checkbox" name="sitesearch"
+value="fundred2.meteor.com" checked="checked" /> only search Fundred Drawing Tool<br />
+</td></tr></table>
+</div>
+
+</form>-->
+<div class ="center">
+
+<input type="text" id="findInput" value="" size="20" />
+    <button id="findNext">Search</button>
+
+</div>
+
+
+		<div class = "container-fluid">
+			<div class ="row">
+				{{#each fundreds}}
+					{{> GalleryItem}}
+				{{/each}}
+			</div>
+		</div>
+</template>
