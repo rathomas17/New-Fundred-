@@ -1,3 +1,5 @@
+
+
 //NEW PAINT
 Template.paint.rendered = function(){
 
@@ -19,7 +21,7 @@ function readURL(input) {
 
         reader.onload = function (e) {
             $('#blah').attr('src', e.target.result);
-        }
+        };
 
         reader.readAsDataURL(input.files[0]);
     }
@@ -104,7 +106,7 @@ $("#imgInp").change(function(){
 
 
   drawingModeEl.onclick = function() {
-    debugger;
+
     canvas.isDrawingMode = !canvas.isDrawingMode;
     canvas2.isDrawingMode = !canvas2.isDrawingMode;
     if (canvas.isDrawingMode) {
@@ -128,7 +130,14 @@ $("#imgInp").change(function(){
 //new new
 
 //end new new
+/*
+  canvas.on('path:created', function() {
+    updateComplexity();
+  });
 
+  canvas2.on('path:created', function() {
+    updateComplexity();
+  });*/
 
   if (fabric.PatternBrush) {
     var vLineDef = function() {
@@ -159,7 +168,7 @@ $("#imgInp").change(function(){
       ctx2.stroke();
 
       return patternCanvas;
-      return patternCanvas2;
+
     };
 
 
@@ -203,7 +212,7 @@ $("#imgInp").change(function(){
 
 
       return patternCanvas;
-      return patternCanvas2;
+
 
     };
 
@@ -266,6 +275,10 @@ $("#imgInp").change(function(){
     var spacePatternBrush = new fabric.PatternBrush(canvas);
     spacePatternBrush.source = spaceimg;
 
+    var spacePatternBrush2 = new fabric.PatternBrush(canvas2);
+    spacePatternBrush2.source = spaceimg;
+
+
 
     //CAT PATTERN
     var catimg = new Image();
@@ -314,9 +327,13 @@ $("#imgInp").change(function(){
       canvas.freeDrawingBrush = diamondPatternBrush;
       canvas2.freeDrawingBrush = diamondPatternBrush;
     }
-    else if (this.value === 'eraser') {
+    else if (this.value === 'Eraser') {
       canvas.freeDrawingBrush = spacePatternBrush;
-      canvas2.freeDrawingBrush = spacePatternBrush;
+      canvas2.freeDrawingBrush = spacePatternBrush2;
+    }
+    else if (this.value === 'Bottom Eraser') {
+      canvas.freeDrawingBrush = spacePatternBrush;
+      canvas2.freeDrawingBrush = spacePatternBrush2;
     }
     else if (this.value === 'cats') {
       canvas.freeDrawingBrush = catsPatternBrush;
@@ -385,28 +402,32 @@ $("#imgInp").change(function(){
       var img=can[0].toDataURL("image/png");
       var img2=can2[0].toDataURL("image2/png");
       //var img2=can2[0].toDataURL("image2/png");
-      FundredImages.insert(img, function(err, fileObj){
-        if(err){
-          alert("Error");
-        } else {
-          // gets the ID of the image that was uploaded
-          var imageId = fileObj._id;
-          Session.set('selectedImageId',imageId);
-          console.log('imageid'+imageId);
-        };
-      });
 
-      FundredImages.insert(img2, function(err, fileObj){
-        if(err){
-          alert("Error");
-        } else {
-          // gets the ID of the image that was uploaded
-          var image2Id = fileObj._id;
-          Session.set('selectedImage2Id',image2Id);
-          console.log('image2id'+image2Id)
+          FundredImages.insert(img, function(err, fileObj){
+            if(err){
+              alert("Error");
+            } else {
+              // gets the ID of the image that was uploaded
+              var imageId = fileObj._id;
+              Session.set('selectedImageId',imageId);
+              console.log('imageid'+imageId);
+            }
+          });
+
+          FundredImages.insert(img2, function(err, fileObj){
+            if(err){
+              alert("Error");
+            } else {
+              // gets the ID of the image that was uploaded
+              var image2Id = fileObj._id;
+              Session.set('selectedImage2Id',image2Id);
+              console.log('image2id'+image2Id);
+
+            }
+          });
+
           Router.go("/submitdrawing");
-        };
-      });
+
    }
 
  });

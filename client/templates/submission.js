@@ -26,7 +26,11 @@
                   // do something with this image ID, like save it somewhere
                   arrayOfImageIds.push(imageId);
 
-                };
+                  var image2Id = fileObj._id;
+
+                  Session.set('selectedImage2Id',image2Id);
+                  arrayOfImageIds.push(image2Id);
+                }
             });
                 // Create the remove button
                 var removeButton = Dropzone.createElement("<button>Remove file</button>");
@@ -56,13 +60,13 @@
         if (Geolocation.latLng() !=null)
         return Geolocation.latLng().lat;
         else
-        return "waiting for latitude"
+        return "waiting for latitude";
       },
       lng: function(){
         if (Geolocation.latLng() !=null)
         return Geolocation.latLng().lng;
         else
-        return "waiting for longitude"
+        return "waiting for longitude";
       },
       image: function(){
         return FundredImages.findOne(Session.get("selectedImageId"));
@@ -81,10 +85,24 @@
   var imgId = Session.get("selectedImageId");
   var img2Id = Session.get("selectedImage2Id");
 
-  Marker.insert({name:name, latitude: lat, longitude: lng}, function(marker){
-    Fundreds.insert({name:name,fundredname:fundredname,location:[lat,lng],imageId:imgId, uploadedAt: new Date(),like:0, marker_id:marker._id});
-    Router.go("/google");
+
+
+//
+
+
+//var img2=can2[0].toDataURL("image2/png");
+
+
+
+//
+
+
+
+  Markers.insert({name:name, latitude: lat, longitude: lng}, function(marker){
+    Fundreds.insert({name:name,fundredname:fundredname,location:[lat,lng],imageId:imgId, image2Id:img2Id, uploadedAt: new Date(),like:0, marker_id:marker._id});
+
   });
+  Router.go("/google");
 
 
 

@@ -74,15 +74,39 @@ Template.Gallery.helpers({
 Template.GalleryItem.helpers({
   image: function(){
     return FundredImages.findOne(this.imageId);
-    return FundredImages.findOne(this.image2Id);
-  }
 
+
+
+},
+
+image2: function(){
+return FundredImages.findOne(Session.get("selectedImage2Id"));
+  return FundredImages.findOne(this.image2Id);
+
+},
+
+
+//
+/*
+imageone: function(){
+  return FundredImages.findOne(Session.get("selectedImageId"));
+},
+imagetwo: function(){
+  return FundredImages.findOne(Session.get("selectedImage2Id"));
+}
+*/
+//
 
 });
 
 Template.GalleryOpen.helpers({
   image: function(){
     return FundredImages.findOne(this.imageId);
+
+  },
+  image2: function(){
+    return FundredImages.findOne(Session.get("selectedImage2Id"));
     return FundredImages.findOne(this.image2Id);
   }
+
 });

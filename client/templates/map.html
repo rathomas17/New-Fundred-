@@ -33,12 +33,12 @@
 			 }
 
 			     </style>
-
+<!--
 					<div id="floating-panel">
 								<input onclick="clearMarkers();" type=button value="Hide Markers">
 								<input onclick="showMarkers();" type=button value="Show All Markers">
 								<input onclick="deleteMarkers();" type=button value="Delete Markers">
-							</div>
+							</div>-->
 							<div id="map"></div>
 								<p>Click on the map to add markers.</p>
 
@@ -86,16 +86,18 @@
 						    // Browser doesn't support Geolocation
 						    handleLocationError(false, infoWindow, map.getCenter());
 						  }
+
+							Markers.find().fetch().forEach(function(marker){
+								debugger;
+								new google.maps.Marker({
+									position: new google.maps.LatLng(marker.latitude, marker.longitude),
+									map: map,
+									title: marker.name
+								});
 						});
 
 
-						Markers.find().fetch().forEach(function(marker){
-							var pos = {
-								lat: marker.latitude,
-								lng: marker.longitude
-							};
-							addMarker(pos, map);
-						});
+
 
 
 
@@ -106,12 +108,13 @@
 
 
 
-					}
+					});
+				}
 
 
 
 					function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-					  infoWindow.setPosition(pos);
+					  infoWindow.setPosition(pos.lat, pos.lng);
 					  infoWindow.setContent(browserHasGeolocation ?
 					                        'Error: The Geolocation service failed.' :
 					                        'Error: Your browser doesn\'t support geolocation.');
