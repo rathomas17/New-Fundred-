@@ -1,1 +1,1 @@
-Host: funtest2.meteor.com
+Host: fundtest2.meteor.com
