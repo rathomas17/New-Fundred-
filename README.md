@@ -1,1 +1,1 @@
-this is a test
+Host: funtest2.meteor.com
